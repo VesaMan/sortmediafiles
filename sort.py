@@ -35,15 +35,31 @@ def init():
     #Call main function
     main()
 
+def sortFiles():
+    tag = TinyTag.get('Bingo.m4a')
+    if 300 <= tag.bitrate <= 320:
+        os.rename("Bingo.m4a", "320/Bingo.m4a")
+    elif 240 <= tag.bitrate <= 264:
+        os.rename("Bingo.m4a", "256/Bingo.m4a")
+    elif 200 <= tag.bitrate <= 230:
+        os.rename("Bingo.m4a", "224/Bingo.m4a")
+    elif 180 <= tag.bitrate <= 198:
+        os.rename("Bingo.m4a", "192/Bingo.m4a")
+    elif 150 <= tag.bitrate <= 170:
+        os.rename("Bingo.m4a", "160/Bingo.m4a")
+    elif 120 <= tag.bitrate <= 140:
+        os.rename("Bingo.m4a", "128/Bingo.m4a")
+    elif 100 <= tag.bitrate <= 118:
+        os.rename("Bingo.m4a", "112/Bingo.m4a")
+    elif tag.bitrate <= 98:
+        os.rename("Bingo.m4a", "96 and less/Bingo.m4a")
+
+
 def main():
     files = glob.glob("*.m4a")
     print("Current folder contains these .m4a files")
     print(files)
-    tag = TinyTag.get('Bingo.m4a')
-    print('This track is by %s.' %tag.artist)
-    print('The bitrate is %s.' %tag.bitrate)
-    os.rename("Bingo.m4a", "96 and less/Bingo.m4a")
-
+    sortFiles()
 
 if __name__ == "__main__":
     init()
