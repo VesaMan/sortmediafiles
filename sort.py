@@ -32,10 +32,10 @@ def init():
     newpath = r'320/'
     if not os.path.exists(newpath):
         os.makedirs(newpath)
-    #Call main function
     main()
 
 def sortFiles(list):
+    #sort files in list
     for file in list:
         tag = TinyTag.get(file)
         if 310 <= tag.bitrate <= 320:
@@ -56,9 +56,7 @@ def sortFiles(list):
             os.rename(file, "96 and less/"+file)
 
 def main():
-    files = glob.glob("*.m4a")
-    print("Current folder contains these .m4a files")
-    print(files)
+    files = glob.glob("*.m4a") #get specified files in current folder, supports multiple media extensions
     sortFiles(files)
 
 if __name__ == "__main__":
