@@ -1,12 +1,14 @@
 #!/usr/bin/env python
-"""sort.py, by Vesa Mäntysaari, 2018-03-09
-This program will sort media files to directories based on their bitrate.
+"""
+sort.py, by Vesa Mäntysaari - 2018/03/11
+This program will sort audio files to directories based on their bitrate.
 """
 from tinytag import *
 import glob
 import os
 
 def init():
+    print("sortmediafiles v. 0.01")
     #Check if folders already exist, if not create them
     newpath = r'96 and less/'
     if not os.path.exists(newpath):
