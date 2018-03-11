@@ -35,31 +35,31 @@ def init():
     #Call main function
     main()
 
-def sortFiles():
-    tag = TinyTag.get('Bingo.m4a')
-    if 300 <= tag.bitrate <= 320:
-        os.rename("Bingo.m4a", "320/Bingo.m4a")
-    elif 240 <= tag.bitrate <= 264:
-        os.rename("Bingo.m4a", "256/Bingo.m4a")
-    elif 200 <= tag.bitrate <= 230:
-        os.rename("Bingo.m4a", "224/Bingo.m4a")
-    elif 180 <= tag.bitrate <= 198:
-        os.rename("Bingo.m4a", "192/Bingo.m4a")
-    elif 150 <= tag.bitrate <= 170:
-        os.rename("Bingo.m4a", "160/Bingo.m4a")
-    elif 120 <= tag.bitrate <= 140:
-        os.rename("Bingo.m4a", "128/Bingo.m4a")
-    elif 100 <= tag.bitrate <= 118:
-        os.rename("Bingo.m4a", "112/Bingo.m4a")
-    elif tag.bitrate <= 98:
-        os.rename("Bingo.m4a", "96 and less/Bingo.m4a")
-
+def sortFiles(list):
+    for file in list:
+        tag = TinyTag.get(file)
+        if 310 <= tag.bitrate <= 320:
+            os.rename(file, "320/"+file)
+        elif 244 <= tag.bitrate <= 264:
+            os.rename(file, "256/"+file)
+        elif 216 <= tag.bitrate <= 230:
+            os.rename(file, "224/"+file)
+        elif 180 <= tag.bitrate <= 196:
+            os.rename(file, "192/"+file)
+        elif 150 <= tag.bitrate <= 170:
+            os.rename(file, "160/"+file)
+        elif 120 <= tag.bitrate <= 132:
+            os.rename(file, "128/"+file)
+        elif 105 <= tag.bitrate <= 115:
+            os.rename(file, "112/"+file)
+        elif tag.bitrate <= 98:
+            os.rename(file, "96 and less/"+file)
 
 def main():
     files = glob.glob("*.m4a")
     print("Current folder contains these .m4a files")
     print(files)
-    sortFiles()
+    sortFiles(files)
 
 if __name__ == "__main__":
     init()
