@@ -56,3 +56,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Media
+*.m4a
+*.mp3
