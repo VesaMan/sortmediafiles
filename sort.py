@@ -59,7 +59,11 @@ def sortFiles(list):
 
 def main():
     files = glob.glob("*.m4a") #get specified files in current folder, supports multiple media extensions
-    sortFiles(files)
+    if not files:
+        print("Current directory doesn't contain any files with specified extension")
+        print("Stopping sortmediafiles")
+    if files:
+        sortFiles(files)
 
 if __name__ == "__main__":
     init()
