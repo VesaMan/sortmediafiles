@@ -17,5 +17,7 @@ Usage:
  Changelog:
 
  0.03 (2018/03/12): Inform the user more about current situation and don't run init() if list is empty
+ 
  0.02 (2018/03/12): If file list is empty, don't progress to sorting
+ 
  0.01 (2018/03/11): Initial release
