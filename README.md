@@ -18,6 +18,7 @@ Usage:
 
 Changelog:
 
+* 0.06 (2018/03/22): User now gets info about how many files were sorted + files that weren't sorted
 * 0.05 (2018/03/22): Tell user when a file doesn't meet defined bit rate requirements
 * 0.04 (2018/03/22): Stricter sorting logic, allows only 2 kbps of deviation from the target bit rate
 * 0.03 (2018/03/12): Inform the user more about current situation and don't run init() if list is empty

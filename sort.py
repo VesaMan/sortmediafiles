@@ -35,40 +35,50 @@ def init():
         os.makedirs(newpath)
 
 def sortFiles(list):
-    #sort files in list
-    for file in list:
+    count = 0
+    skipped = 0
+    for file in list: #sort files in list
         tag = TinyTag.get(file)
         if 318 <= tag.bitrate <= 322:
             os.rename(file, "320/"+file)
+            count = count + 1
         elif 254 <= tag.bitrate <= 258:
             os.rename(file, "256/"+file)
+            count = count + 1
         elif 222 <= tag.bitrate <= 226:
             os.rename(file, "224/"+file)
+            count = count + 1
         elif 190 <= tag.bitrate <= 194:
             os.rename(file, "192/"+file)
+            count = count + 1
         elif 158 <= tag.bitrate <= 162:
             os.rename(file, "160/"+file)
+            count = count + 1
         elif 126 <= tag.bitrate <= 130:
             os.rename(file, "128/"+file)
+            count = count + 1
         elif 110 <= tag.bitrate <= 114:
             os.rename(file, "112/"+file)
+            count = count + 1
         elif 94 <= tag.bitrate <= 98:
             os.rename(file, "96/"+file)
+            count = count + 1
         else:
             print(file, " didn't meet any of the requirements and wasn't moved.")
+            skipped = skipped + 1
+    return(count, skipped)
 
 def main():
-    print("sortmediafiles v. 0.05\n-----------------------\n")
+    print("sortmediafiles v. 0.06\n-----------------------\n")
     files = glob.glob("*.m4a") #get specified files in current folder, supports multiple media extensions
     if not files: #if list is empty
         print("Current directory doesn't contain any files with the specified extension")
         print("Stopping sortmediafiles")
     if files: #if list has data
         init()
-        print("Sorting the following files:\n")
-        for file in files:
-            print(file)
-        sortFiles(files)
+        count, skipped = sortFiles(files)
+        print(count, " files sorted.")
+        print(skipped, " files didn't meet any of the requirements.")
 
 if __name__ == "__main__":
     main()
