@@ -9,7 +9,7 @@ import os
 
 def init():
     #Check if folders already exist, if not create them
-    newpath = r'96 and less/'
+    newpath = r'96/'
     if not os.path.exists(newpath):
         os.makedirs(newpath)
     newpath = r'112/'
@@ -38,25 +38,25 @@ def sortFiles(list):
     #sort files in list
     for file in list:
         tag = TinyTag.get(file)
-        if 310 <= tag.bitrate <= 320:
+        if 318 <= tag.bitrate <= 322:
             os.rename(file, "320/"+file)
-        elif 244 <= tag.bitrate <= 264:
+        elif 254 <= tag.bitrate <= 258:
             os.rename(file, "256/"+file)
-        elif 216 <= tag.bitrate <= 230:
+        elif 222 <= tag.bitrate <= 226:
             os.rename(file, "224/"+file)
-        elif 180 <= tag.bitrate <= 196:
+        elif 190 <= tag.bitrate <= 194:
             os.rename(file, "192/"+file)
-        elif 150 <= tag.bitrate <= 170:
+        elif 158 <= tag.bitrate <= 162:
             os.rename(file, "160/"+file)
-        elif 120 <= tag.bitrate <= 132:
+        elif 126 <= tag.bitrate <= 130:
             os.rename(file, "128/"+file)
-        elif 105 <= tag.bitrate <= 115:
+        elif 110 <= tag.bitrate <= 114:
             os.rename(file, "112/"+file)
-        elif tag.bitrate <= 98:
-            os.rename(file, "96 and less/"+file)
+        elif 94 <= tag.bitrate <= 98:
+            os.rename(file, "96/"+file)
 
 def main():
-    print("sortmediafiles v. 0.03\n-----------------------\n")
+    print("sortmediafiles v. 0.04\n-----------------------\n")
     files = glob.glob("*.m4a") #get specified files in current folder, supports multiple media extensions
     if not files: #if list is empty
         print("Current directory doesn't contain any files with the specified extension")
