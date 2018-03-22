@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-sort.py, by Vesa Mäntysaari - 2018/03/12
+sort.py, by Vesa Mäntysaari - 2018/03/22
 This program will sort audio files to directories based on their bit rate.
 """
 from tinytag import *
@@ -54,9 +54,11 @@ def sortFiles(list):
             os.rename(file, "112/"+file)
         elif 94 <= tag.bitrate <= 98:
             os.rename(file, "96/"+file)
+        else:
+            print(file, " didn't meet any of the requirements and wasn't moved.")
 
 def main():
-    print("sortmediafiles v. 0.04\n-----------------------\n")
+    print("sortmediafiles v. 0.05\n-----------------------\n")
     files = glob.glob("*.m4a") #get specified files in current folder, supports multiple media extensions
     if not files: #if list is empty
         print("Current directory doesn't contain any files with the specified extension")
